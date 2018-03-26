@@ -39,6 +39,7 @@ db.each(`SELECT * FROM tiles WHERE zoom_level=${process.env.Z}`, (err, r) => {
     size: buf.length, q: q(buf.length), version: version, extent: q(extent),
     stat: JSON.stringify(stat)
   }
+  json.tippecanoe = {layer: 'smart'}
   console.log(JSON.stringify(json))
 }, (err, count) => {
   db.close()
